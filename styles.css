@@ -2,13 +2,12 @@
    VARIABLES & GLOBAL STYLES
    ========================================= */
 :root {
-    --primary-color: #0056b3; /* Azul educativo */
-    --primary-light: #e6f0fa;
-    --text-dark: #333333;
-    --text-light: #666666;
-    --bg-white: #ffffff;
-    --bg-light: #f8f9fa; /* Gris suave */
-    --border-color: #e0e0e0;
+    --primary-color: #ffffff; /* Tiza blanca */
+    --chalk-color: #fdfdfd;
+    --text-dark: #ffffff; /* Todo el texto es blanco/tiza */
+    --text-light: rgba(255, 255, 255, 0.85);
+    --bg-dark: #2c4233; /* Verde oscuro pizarron fallback */
+    --border-chalk: 2px dashed rgba(255, 255, 255, 0.4);
     --transition: all 0.3s ease;
 }
 
@@ -19,21 +18,23 @@
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
-    line-height: 1.6;
-    color: var(--text-dark);
-    background-color: var(--bg-white);
+    font-family: 'Caveat', cursive;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    color: var(--chalk-color);
+    background: var(--bg-dark) url('assets/images/hero-bg.png') top center/cover fixed;
     scroll-behavior: smooth;
 }
 
 a {
     text-decoration: none;
-    color: var(--primary-color);
+    color: var(--chalk-color);
     transition: var(--transition);
+    border-bottom: 2px dashed transparent;
 }
 
 a:hover {
-    color: #003d82;
+    border-bottom: 2px dashed var(--chalk-color);
 }
 
 ul {
@@ -54,7 +55,7 @@ ul {
 }
 
 .bg-light {
-    background-color: var(--bg-light);
+    background-color: transparent; /* Removido para mostrar el pizarron */
 }
 
 .text-center {
@@ -62,10 +63,11 @@ ul {
 }
 
 .section-title {
-    font-size: 2.2rem;
+    font-size: 3.5rem;
     margin-bottom: 30px;
-    color: var(--text-dark);
+    color: var(--chalk-color);
     font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
 .grid-2 {
@@ -82,42 +84,38 @@ ul {
 
 .btn {
     display: inline-block;
-    padding: 12px 30px;
-    border-radius: 50px;
-    font-weight: 500;
-    font-size: 1.1rem;
+    padding: 10px 30px;
+    font-weight: 700;
+    font-size: 2rem;
     cursor: pointer;
     text-align: center;
     transition: var(--transition);
-    border: none;
-}
-
-.btn-primary {
-    background-color: var(--primary-color);
-    color: var(--bg-white);
-    box-shadow: 0 4px 6px rgba(0, 86, 179, 0.2);
+    background: rgba(255,255,255,0.05);
+    border: 3px solid var(--chalk-color);
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px; /* Estilo dibujado a mano */
+    color: var(--chalk-color);
+    font-family: 'Caveat', cursive;
+    box-shadow: 2px 2px 0px rgba(255,255,255,0.3);
 }
 
 .btn-primary:hover {
-    background-color: #004494;
-    color: var(--bg-white);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 86, 179, 0.3);
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px) rotate(-1deg);
+    box-shadow: 4px 4px 0px rgba(255,255,255,0.4);
 }
 
 /* =========================================
    HEADER
    ========================================= */
 .header {
-    background-color: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    background-color: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     position: sticky;
     top: 0;
     z-index: 1000;
     padding: 15px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.3);
+    border-bottom: 2px dashed rgba(255,255,255,0.3);
 }
 
 .header-container {
@@ -127,9 +125,15 @@ ul {
 }
 
 .logo {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     font-weight: 700;
-    color: var(--primary-color);
+    color: var(--chalk-color);
+    border-bottom: none;
+}
+
+.logo:hover {
+    border-bottom: none;
+    transform: scale(1.05);
 }
 
 .nav-list {
@@ -138,20 +142,15 @@ ul {
 }
 
 .nav-link {
-    color: var(--text-dark);
+    color: var(--chalk-color);
     font-weight: 500;
-    font-size: 1rem;
-}
-
-.nav-link:hover {
-    color: var(--primary-color);
+    font-size: 1.6rem;
 }
 
 /* =========================================
    HERO SECTION
    ========================================= */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('assets/images/hero-bg.png') center/cover no-repeat;
     min-height: 80vh;
     display: flex;
     align-items: center;
@@ -159,64 +158,46 @@ ul {
 }
 
 .hero-title {
-    font-size: 3.5rem;
+    font-size: 5rem;
     font-weight: 700;
-    color: var(--bg-white);
+    color: var(--chalk-color);
     margin-bottom: 20px;
     line-height: 1.2;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+    text-shadow: 2px 4px 8px rgba(0,0,0,0.8);
 }
 
 .hero-subtitle {
-    font-size: 1.2rem;
-    color: var(--bg-white);
+    font-size: 2.2rem;
+    color: var(--chalk-color);
     font-weight: 500;
     margin-bottom: 40px;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+    text-shadow: 2px 4px 8px rgba(0,0,0,0.8);
 }
 
 /* =========================================
    MISIÓN Y VISIÓN
    ========================================= */
 .card {
-    background-color: #fdfadd; /* Color de block de notas amarillo clarito */
-    background-image: linear-gradient(transparent 95%, #e0d8b0 100%);
-    background-size: 100% 32px;
-    padding: 40px 30px 40px 50px;
-    border-radius: 4px 12px 12px 4px;
-    box-shadow: 3px 5px 15px rgba(0,0,0,0.08);
+    background-color: transparent;
+    padding: 40px;
+    border-radius: 10px;
     transition: var(--transition);
-    border: 1px solid var(--border-color);
-    border-left: 3px solid #ff7b7b; /* Margen rojo típico de anotador */
+    border: var(--border-chalk);
     position: relative;
-    line-height: 32px; /* Alineado con las rayas del fondo */
-}
-
-/* Cinta adhesiva en la parte superior del block de notas */
-.card::before {
-    content: '';
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%) rotate(-2deg);
-    width: 100px;
-    height: 25px;
-    background-color: rgba(255, 255, 255, 0.6);
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    border-radius: 2px;
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transform: scale(1.02) rotate(-1deg);
+    border-style: solid;
+    background-color: rgba(255,255,255,0.05);
 }
 
 .card p {
     color: var(--text-light);
-    font-size: 1.1rem;
+    font-size: 1.8rem;
 }
 
 /* =========================================
@@ -231,10 +212,10 @@ ul {
 }
 
 .valor-item {
-    background-color: var(--bg-white);
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
-    padding: 20px 30px;
+    background-color: rgba(255,255,255,0.05);
+    border: var(--border-chalk);
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px; /* Bordes irregulares */
+    padding: 15px 30px;
     display: flex;
     align-items: center;
     gap: 15px;
@@ -242,16 +223,17 @@ ul {
 }
 
 .valor-item:hover {
-    border-color: var(--primary-color);
-    background-color: var(--primary-light);
+    border-style: solid;
+    transform: rotate(2deg) scale(1.05);
+    background-color: rgba(255,255,255,0.1);
 }
 
 .valor-icon {
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
 .valor-item h3 {
-    font-size: 1.1rem;
+    font-size: 1.8rem;
     font-weight: 500;
 }
 
@@ -259,59 +241,58 @@ ul {
    EQUIPO
    ========================================= */
 .team-card {
-    background-color: var(--bg-white);
-    padding: 40px 20px;
-    border-radius: 12px;
+    background-color: transparent;
+    padding: 30px 20px;
     text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     transition: var(--transition);
-    border: 1px solid var(--border-color);
+    border: var(--border-chalk);
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
 }
 
 .team-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--primary-color);
+    transform: translateY(-5px) rotate(1deg);
+    border-style: solid;
+    background-color: rgba(255,255,255,0.05);
 }
 
 .team-avatar {
-    width: 100px;
-    height: 100px;
-    background-color: var(--primary-light);
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     margin: 0 auto 20px;
     object-fit: cover;
-    border: 3px solid var(--primary-light);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border: 4px dashed rgba(255, 255, 255, 0.5); /* Borde de tiza */
     transition: var(--transition);
+    filter: sepia(0.2) contrast(1.1); /* Toque sutil a la foto */
 }
 
 .team-card:hover .team-avatar {
     transform: scale(1.1);
-    border-color: var(--primary-color);
+    border-style: solid;
 }
 
 .team-name {
-    font-size: 1.3rem;
+    font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 5px;
 }
 
 .team-role {
     color: var(--text-light);
-    font-size: 0.95rem;
+    font-size: 1.6rem;
 }
 
 /* =========================================
    CONTACTO
    ========================================= */
 .contacto-info {
-    font-size: 1.1rem;
+    font-size: 1.8rem;
     color: var(--text-light);
     margin-bottom: 30px;
 }
 
 .contacto-details p {
-    font-size: 1.1rem;
+    font-size: 1.8rem;
     margin-bottom: 15px;
 }
 
@@ -319,14 +300,15 @@ ul {
    FOOTER
    ========================================= */
 .footer {
-    background-color: var(--text-dark);
-    color: var(--bg-white);
+    background-color: rgba(0,0,0,0.4);
+    color: var(--chalk-color);
     padding: 30px 0;
+    border-top: 2px dashed rgba(255,255,255,0.3);
 }
 
 .footer p {
     opacity: 0.8;
-    font-size: 0.9rem;
+    font-size: 1.4rem;
 }
 
 /* =========================================
@@ -345,7 +327,7 @@ ul {
     }
     
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 3.5rem;
     }
     
     .section {
