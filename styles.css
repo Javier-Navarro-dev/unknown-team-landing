@@ -181,18 +181,19 @@ ul {
    MISIÓN Y VISIÓN
    ========================================= */
 .card {
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, 0.4); /* Fondo para resaltar */
     padding: 40px;
     border-radius: 10px;
     transition: var(--transition);
-    border: var(--border-chalk);
+    border: 3px dashed rgba(255, 255, 255, 0.7); /* Borde más fuerte */
     position: relative;
+    box-shadow: 4px 4px 15px rgba(0,0,0,0.5);
 }
 
 .card:hover {
     transform: scale(1.02) rotate(-1deg);
     border-style: solid;
-    background-color: rgba(255,255,255,0.05);
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 .card p {
@@ -212,20 +213,21 @@ ul {
 }
 
 .valor-item {
-    background-color: rgba(255,255,255,0.05);
-    border: var(--border-chalk);
-    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px; /* Bordes irregulares */
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 3px dashed rgba(255, 255, 255, 0.7);
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
     padding: 15px 30px;
     display: flex;
     align-items: center;
     gap: 15px;
     transition: var(--transition);
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.4);
 }
 
 .valor-item:hover {
     border-style: solid;
     transform: rotate(2deg) scale(1.05);
-    background-color: rgba(255,255,255,0.1);
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 .valor-icon {
@@ -241,18 +243,19 @@ ul {
    EQUIPO
    ========================================= */
 .team-card {
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, 0.4);
     padding: 30px 20px;
     text-align: center;
     transition: var(--transition);
-    border: var(--border-chalk);
+    border: 3px dashed rgba(255, 255, 255, 0.7);
     border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    box-shadow: 4px 4px 15px rgba(0,0,0,0.5);
 }
 
 .team-card:hover {
     transform: translateY(-5px) rotate(1deg);
     border-style: solid;
-    background-color: rgba(255,255,255,0.05);
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 .team-avatar {
