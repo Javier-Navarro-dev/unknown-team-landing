@@ -2,13 +2,17 @@
    VARIABLES & GLOBAL STYLES
    ========================================= */
 :root {
-    --primary-color: #ffffff; /* Tiza blanca */
-    --chalk-color: #fdfdfd;
-    --text-dark: #ffffff; /* Todo el texto es blanco/tiza */
-    --text-light: rgba(255, 255, 255, 0.85);
-    --bg-dark: #2c4233; /* Verde oscuro pizarron fallback */
-    --border-chalk: 2px dashed rgba(255, 255, 255, 0.4);
+    --primary-color: #0f172a; /* Slate 900 */
+    --secondary-color: #3b82f6; /* Blue 500 */
+    --bg-light: #f8fafc; /* Slate 50 */
+    --bg-white: #ffffff;
+    --text-main: #334155; /* Slate 700 */
+    --text-heading: #0f172a; /* Slate 900 */
+    --text-muted: #64748b; /* Slate 500 */
     --transition: all 0.3s ease;
+    --border-radius: 8px;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 * {
@@ -18,23 +22,22 @@
 }
 
 body {
-    font-family: 'Caveat', cursive;
-    font-size: 1.4rem;
-    line-height: 1.5;
-    color: var(--chalk-color);
-    background: var(--bg-dark) url('assets/images/hero-bg.png') top center/cover fixed;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-main);
+    background-color: var(--bg-white);
     scroll-behavior: smooth;
 }
 
 a {
     text-decoration: none;
-    color: var(--chalk-color);
+    color: var(--secondary-color);
     transition: var(--transition);
-    border-bottom: 2px dashed transparent;
 }
 
 a:hover {
-    border-bottom: 2px dashed var(--chalk-color);
+    color: #2563eb; /* Blue 600 */
 }
 
 ul {
@@ -55,7 +58,7 @@ ul {
 }
 
 .bg-light {
-    background-color: transparent; /* Removido para mostrar el pizarron */
+    background-color: var(--bg-light);
 }
 
 .text-center {
@@ -63,59 +66,65 @@ ul {
 }
 
 .section-title {
-    font-size: 3.5rem;
-    margin-bottom: 30px;
-    color: var(--chalk-color);
+    font-size: 2.25rem;
+    margin-bottom: 40px;
+    color: var(--text-heading);
     font-weight: 700;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
 .grid-2 {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 40px;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
 }
 
 .grid-4 {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 30px;
 }
 
 .btn {
     display: inline-block;
-    padding: 10px 30px;
-    font-weight: 700;
-    font-size: 2rem;
+    padding: 12px 28px;
+    font-weight: 600;
+    font-size: 1.1rem;
     cursor: pointer;
     text-align: center;
     transition: var(--transition);
-    background: rgba(255,255,255,0.05);
-    border: 3px solid var(--chalk-color);
-    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px; /* Estilo dibujado a mano */
-    color: var(--chalk-color);
-    font-family: 'Caveat', cursive;
-    box-shadow: 2px 2px 0px rgba(255,255,255,0.3);
+    border-radius: var(--border-radius);
+    border: none;
+}
+
+.btn-primary {
+    background-color: var(--secondary-color);
+    color: var(--bg-white);
+    box-shadow: var(--shadow);
 }
 
 .btn-primary:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    transform: translateY(-3px) rotate(-1deg);
-    box-shadow: 4px 4px 0px rgba(255,255,255,0.4);
+    background-color: #2563eb;
+    color: var(--bg-white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
 }
 
 /* =========================================
    HEADER
    ========================================= */
 .header {
-    background-color: rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background-color: var(--bg-white);
     position: sticky;
     top: 0;
     z-index: 1000;
-    padding: 15px 0;
-    border-bottom: 2px dashed rgba(255,255,255,0.3);
+    padding: 20px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 
 .header-container {
@@ -125,137 +134,152 @@ ul {
 }
 
 .logo {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     font-weight: 700;
-    color: var(--chalk-color);
-    border-bottom: none;
+    color: var(--primary-color);
+    letter-spacing: -0.5px;
 }
 
 .logo:hover {
-    border-bottom: none;
-    transform: scale(1.05);
+    color: var(--secondary-color);
 }
 
 .nav-list {
     display: flex;
-    gap: 25px;
+    gap: 30px;
 }
 
 .nav-link {
-    color: var(--chalk-color);
+    color: var(--text-main);
     font-weight: 500;
-    font-size: 1.6rem;
+    font-size: 1rem;
+}
+
+.nav-link:hover {
+    color: var(--secondary-color);
 }
 
 /* =========================================
    HERO SECTION
    ========================================= */
 .hero {
-    min-height: 80vh;
+    padding: 140px 0;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #1e293b 100%);
+    color: var(--bg-white);
     display: flex;
     align-items: center;
     text-align: center;
 }
 
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
 .hero-title {
-    font-size: 5rem;
-    font-weight: 700;
-    color: var(--chalk-color);
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--bg-white);
     margin-bottom: 20px;
     line-height: 1.2;
-    text-shadow: 2px 4px 8px rgba(0,0,0,0.8);
+    letter-spacing: -1px;
 }
 
 .hero-subtitle {
-    font-size: 2.2rem;
-    color: var(--chalk-color);
-    font-weight: 500;
+    font-size: 1.25rem;
+    color: #cbd5e1; /* Slate 300 */
+    font-weight: 400;
     margin-bottom: 40px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    text-shadow: 2px 4px 8px rgba(0,0,0,0.8);
+    line-height: 1.6;
 }
 
 /* =========================================
-   MISIÓN Y VISIÓN
+   CARDS (Misión, Visión, Objetivos)
    ========================================= */
 .card {
-    background-color: rgba(0, 0, 0, 0.4); /* Fondo para resaltar */
+    background-color: var(--bg-white);
     padding: 40px;
-    border-radius: 10px;
+    border-radius: var(--border-radius);
     transition: var(--transition);
-    border: 3px dashed rgba(255, 255, 255, 0.7); /* Borde más fuerte */
-    position: relative;
-    box-shadow: 4px 4px 15px rgba(0,0,0,0.5);
+    box-shadow: var(--shadow);
+    border: 1px solid #e2e8f0;
+}
+
+.bg-light .card {
+    background-color: var(--bg-white);
 }
 
 .card:hover {
-    transform: scale(1.02) rotate(-1deg);
-    border-style: solid;
-    background-color: rgba(0, 0, 0, 0.6);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.card h2.section-title, .card h3 {
+    font-size: 1.5rem;
+    color: var(--text-heading);
+    margin-bottom: 15px;
 }
 
 .card p {
-    color: var(--text-light);
-    font-size: 1.8rem;
+    color: var(--text-main);
+    font-size: 1.05rem;
 }
 
 /* =========================================
    VALORES
    ========================================= */
 .valores-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
     margin-top: 40px;
 }
 
 .valor-item {
-    background-color: rgba(0, 0, 0, 0.4);
-    border: 3px dashed rgba(255, 255, 255, 0.7);
-    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-    padding: 15px 30px;
+    background-color: var(--bg-white);
+    border-radius: var(--border-radius);
+    padding: 30px 20px;
     display: flex;
+    flex-direction: column;
     align-items: center;
+    text-align: center;
     gap: 15px;
     transition: var(--transition);
-    box-shadow: 4px 4px 10px rgba(0,0,0,0.4);
+    box-shadow: var(--shadow);
+    border: 1px solid #e2e8f0;
 }
 
 .valor-item:hover {
-    border-style: solid;
-    transform: rotate(2deg) scale(1.05);
-    background-color: rgba(0, 0, 0, 0.6);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
 }
 
 .valor-icon {
-    font-size: 2rem;
+    font-size: 2.5rem;
 }
 
 .valor-item h3 {
-    font-size: 1.8rem;
-    font-weight: 500;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-heading);
 }
 
 /* =========================================
    EQUIPO
    ========================================= */
 .team-card {
-    background-color: rgba(0, 0, 0, 0.4);
-    padding: 30px 20px;
+    background-color: var(--bg-white);
+    padding: 40px 20px;
     text-align: center;
     transition: var(--transition);
-    border: 3px dashed rgba(255, 255, 255, 0.7);
-    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-    box-shadow: 4px 4px 15px rgba(0,0,0,0.5);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    border: 1px solid #e2e8f0;
 }
 
 .team-card:hover {
-    transform: translateY(-5px) rotate(1deg);
-    border-style: solid;
-    background-color: rgba(0, 0, 0, 0.6);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
 }
 
 .team-avatar {
@@ -264,38 +288,34 @@ ul {
     border-radius: 50%;
     margin: 0 auto 20px;
     object-fit: cover;
-    border: 4px dashed rgba(255, 255, 255, 0.5); /* Borde de tiza */
-    transition: var(--transition);
-    filter: sepia(0.2) contrast(1.1); /* Toque sutil a la foto */
-}
-
-.team-card:hover .team-avatar {
-    transform: scale(1.1);
-    border-style: solid;
+    border: 3px solid var(--bg-light);
+    box-shadow: var(--shadow);
 }
 
 .team-name {
-    font-size: 2.5rem;
+    font-size: 1.25rem;
     font-weight: 700;
+    color: var(--text-heading);
     margin-bottom: 5px;
 }
 
 .team-role {
-    color: var(--text-light);
-    font-size: 1.6rem;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    font-weight: 500;
 }
 
 /* =========================================
    CONTACTO
    ========================================= */
 .contacto-info {
-    font-size: 1.8rem;
-    color: var(--text-light);
+    font-size: 1.15rem;
+    color: var(--text-main);
     margin-bottom: 30px;
 }
 
 .contacto-details p {
-    font-size: 1.8rem;
+    font-size: 1.1rem;
     margin-bottom: 15px;
 }
 
@@ -303,15 +323,14 @@ ul {
    FOOTER
    ========================================= */
 .footer {
-    background-color: rgba(0,0,0,0.4);
-    color: var(--chalk-color);
+    background-color: var(--primary-color);
+    color: var(--bg-white);
     padding: 30px 0;
-    border-top: 2px dashed rgba(255,255,255,0.3);
 }
 
 .footer p {
     opacity: 0.8;
-    font-size: 1.4rem;
+    font-size: 0.9rem;
 }
 
 /* =========================================
@@ -330,7 +349,7 @@ ul {
     }
     
     .hero-title {
-        font-size: 3.5rem;
+        font-size: 2.5rem;
     }
     
     .section {
